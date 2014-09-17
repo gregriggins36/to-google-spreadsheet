@@ -1,0 +1,15 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <EditTextPreference
+        android:key="@string/select_sheet_key"
+        android:title="@string/select_sheet"
+        android:summary="@string/select_sheet_summary" />
+
+    <ListPreference
+        android:key="@string/select_google_account_key"
+        android:title="@string/select_google_account"
+        android:summary="@string/select_google_account_summary"
+        android:entries="@array/listentries"
+        android:entryValues="@array/listvalues"/>
+
+</PreferenceScreen>

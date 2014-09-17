@@ -1,0 +1,39 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 19
+    buildToolsVersion "20.0.0"
+
+    defaultConfig {
+        applicationId "com.greg.updatespreadsheet"
+        minSdkVersion 14
+        targetSdkVersion 19
+        versionCode 1
+        versionName "1.0"
+    }
+    buildTypes {
+        release {
+            runProguard false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+configurations {
+    all*.exclude group: 'org.apache.httpcomponents', module: 'httpclient'
+    all*.exclude group: 'xpp3', module: 'xpp3'
+}
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+    compile 'com.google.android.gms:play-services:5.0.+'
+    compile ("com.google.gdata:core:1.47.1") {
+        exclude module: 'activation'
+        exclude module: 'mail'
+        exclude module: 'servlet-api'
+        exclude module: 'jetty'
+        exclude module: 'jetty-util'
+        exclude module: 'jsr305'
+        exclude module: 'google-oauth-client*'
+    }
+}
